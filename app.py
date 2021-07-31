@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-@api.route('/', methods = ['POST', 'GET'])
+@app.route('/', methods = ['POST', 'GET'])
 def bert():
   uri = "http://d449ac5c-5942-4da0-a42b-41e46814b152.australiaeast.azurecontainer.io/score"
   headers = {"Content-Type": "application/json"}
