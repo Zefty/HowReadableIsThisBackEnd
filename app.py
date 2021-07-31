@@ -14,6 +14,7 @@ def bert():
         "data": "My hope lay in Jack's promise that he would keep a bright light burning in the upper story to guide me on my course.",
     }
   if request.method == 'POST':
+    print(request.data)
     data = json.loads(request.data)
   data = json.dumps(data)
   response = requests.post(uri, data = data, headers = headers)
