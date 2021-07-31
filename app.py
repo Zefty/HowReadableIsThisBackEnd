@@ -16,6 +16,7 @@ def bert():
   if request.method == 'POST':
     print(request.data)
     data = json.loads(request.data.decode("utf-8"))
+    print(data)
   data = json.dumps(data)
   response = requests.post(uri, data = data, headers = headers)
   return json.dumps(response.json())
