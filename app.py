@@ -5,19 +5,16 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/', methods = ['POST', 'GET'])
-def bert():
-  uri = "http://d449ac5c-5942-4da0-a42b-41e46814b152.australiaeast.azurecontainer.io/score"
-  headers = {"Content-Type": "application/json"}
+@app.route('/', methods = ['POST'])
+def index():
   if request.method == 'GET':
     data = {
-        "data": "My hope lay in Jack's promise that he would keep a bright light burning in the upper story to guide me on my course.",
+        "data": "My hope lay in Jack's promise that he would keep a bright light burning in the upper story to guide me on my course."
     }
   if request.method == 'POST':
-    print(request.data)
-    data = json.loads(request.data.decode("utf-8"))
-    print(data)
-  data = json.dumps(data)
+    data = request.data
+  uri = "http://d449ac5c-5942-4da0-a42b-41e46814b152.australiaeast.azurecontainer.io/score"
+  headers = {"Content-Type": "application/json"}
   response = requests.post(uri, data = data, headers = headers)
   return json.dumps(response.json())
 
