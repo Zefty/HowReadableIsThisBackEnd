@@ -1,7 +1,7 @@
 from flask import Flask, json, request
 import requests
 
-api = Flask(__name__)
+app = Flask(__name__)
 
 @api.route('/bert', methods = ['POST', 'GET'])
 def bert():
@@ -18,4 +18,4 @@ def bert():
   return json.dumps(response.json())
 
 if __name__ == '__main__':
-    api.run() 
+  app.run() 
